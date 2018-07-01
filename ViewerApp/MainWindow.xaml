@@ -1,0 +1,126 @@
+﻿<Controls:MetroWindow x:Class="ViewerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ViewerApp"
+                      xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+              
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:ViewerApp.Behaviours"
+        xmlns:Prism="http://prismlibrary.com/"
+                      GlowBrush="AliceBlue"
+        Prism:ViewModelLocator.AutoWireViewModel="True"   WindowState="Maximized"
+        mc:Ignorable="d" TitleForeground="Black" TitleCaps="False" TitleAlignment="Center"
+        Title="R-3D Engine" Height="720" Width="1200" Loaded="MainWindow_Loaded" KeyDown="MetroWindow_KeyDown" KeyUp="MetroWindow_KeyUp" >
+
+    <!--<Controls:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <Fluent:RibbonTitleBar x:Name="RibbonTitleBar" 
+                                   Header="{Binding ElementName=window, Path=Title}"/>
+        </DataTemplate>
+    </Controls:MetroWindow.TitleTemplate>-->
+
+    <!--<Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Button>Left</Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>-->
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button>Right</Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="117"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ContentControl Grid.Row="0" Prism:RegionManager.RegionName="RibbonRegion"></ContentControl>
+        <DockPanel LastChildFill="True" Grid.Row="1" HorizontalAlignment="Stretch" 
+                 Name="MainDockPanel" VerticalAlignment="Stretch">
+            <!--<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" 
+                    Background="#FFCCD4F8" Height="27">-->
+            <ContentControl Height="24" Background="#FFCCD4F8" DockPanel.Dock="Top" Prism:RegionManager.RegionName="ToolBarRegion"></ContentControl>
+            <!--</StackPanel>-->
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom"  Height="25">
+                <ContentControl Prism:RegionManager.RegionName="StatusRegion" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl>
+            </StackPanel>
+
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                <ContentControl Prism:RegionManager.RegionName="ModuleRegion" 
+                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></ContentControl>
+
+            </Grid>
+
+        </DockPanel>
+    </Grid>
+
+</Controls:MetroWindow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

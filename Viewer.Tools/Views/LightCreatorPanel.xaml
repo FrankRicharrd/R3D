@@ -1,0 +1,47 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Viewer.Tools.Views"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" xmlns:Controls="clr-namespace:ColorWheel.Controls;assembly=ColorWheel.Controls" x:Class="Viewer.Tools.Views.LightCreatorPanel"
+             mc:Ignorable="d" 
+             d:DesignHeight="332" Width="190.608">
+    <Grid d:LayoutOverrides="LeftMargin, RightMargin" RenderTransformOrigin="0.496,0.502" Margin="0,0,0,-77.05">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="214*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="44*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock x:Name="textBlock2" Height="17" Margin="0,0,78.608,187.026" TextWrapping="Wrap" Text="DiffuseColor" VerticalAlignment="Top" HorizontalAlignment="Right" Width="102"/>
+            <xctk:ColorSpectrumSlider x:Name="diffusecolor" SelectedColor="{Binding Path=SelectedDiffuseColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="15.667,19.333,0,20.36" Width="26.333"/>
+            <xctk:ColorSpectrumSlider x:Name="colorSpectrumSlider_Copy" Margin="76.257,19.333,88.018,20.36" IsEnabled="False"/>
+            <xctk:ColorSpectrumSlider x:Name="colorSpectrumSlider_Copy1" HorizontalAlignment="Right" Margin="0,19.333,22.275,20.36" Width="26.333" IsEnabled="False"/>
+            <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Height="13.25" Margin="10,0,0,2.026" Background="{Binding ElementName=diffusecolor, Path=SelectedDiffuseColor}" TextWrapping="Wrap" Text="Color" VerticalAlignment="Bottom" Width="37.5"/>
+        </Grid>
+        <!--<xctk:ValueRangeTextBox x:Name="valueRangeTextBox" Margin="43.924,20,0,10" Value="{Binding Path=X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" TextWrapping="Wrap" Text="0" HorizontalAlignment="Left" Width="27.333" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <xctk:ValueRangeTextBox x:Name="valueRangeTextBox_Copy" Margin="0,20,54.685,10" Value="{Binding Path=Z, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" TextWrapping="Wrap" Text="0" HorizontalAlignment="Right" Width="27.333" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <xctk:ValueRangeTextBox x:Name="valueRangeTextBox_Copy1" Margin="76.257,20,87.018,10" Value="{Binding Path=Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" TextWrapping="Wrap" Text="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>-->
+
+        <Grid Grid.Row="2" >
+            <StackPanel Orientation="Vertical">
+            <TextBlock x:Name="textBlock"  TextWrapping="Wrap" Text="Position" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBox Width="25" Text="{Binding X, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Separator Visibility="Hidden" Width="10"></Separator>
+                    <TextBox Width="25" Text="{Binding Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Separator Visibility="Hidden" Width="10"></Separator>
+                    <TextBox Width="25" Text="{Binding Z, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
+        <TextBlock x:Name="textBlock1" Margin="10,10,78.608,0" Grid.Row="1" TextWrapping="Wrap" Text="Select Parent" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="15.5" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" Height="26.5" Margin="10,0,10,1" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Path=SelectedNode.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Bottom" IsReadOnly="True" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+       
+        <Button x:Name="button" Content="Create" Margin="101,7,10,0" Command="{Binding Path=CreateCommand}" Grid.Row="3" Height="Auto"/>
+    </Grid>
+</UserControl>

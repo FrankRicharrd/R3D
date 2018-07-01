@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="ViewerApp.Views.ToolBarPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ViewerApp.Views"
+              xmlns:prism="http://prismlibrary.com/"
+              prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="700">
+    <UserControl.Resources>
+        <Style TargetType="Button" x:Key="ToolbarIcon" >
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+        </Style>
+        <Style TargetType="ToggleButton" x:Key="ToolbarIconToggleButton" >
+            <Setter Property="Width" Value="20"/>
+            <Setter Property="Height" Value="20"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <ToolBarTray>
+            <ToolBar >
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=FrontViewCommand}" >
+                    <Image Source="..\Images/ToolBarIcons/frontview.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=BackViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/backview.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=RightViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/rightview.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=LeftViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/leftView.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=TopViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/topview.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=BottomViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/bottomview.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=PrespectiveViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/prespective.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=WireframeViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/wireframe.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}" Command="{Binding Path=ShadedViewCommand}">
+                    <Image Source="..\Images/ToolBarIcons/shaded.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}">
+                    <Image Source="..\Images/ToolBarIcons/points.png" />
+                </Button>
+                <ToggleButton Name="gridvisibilitybtn" IsChecked="True" Style ="{StaticResource ToolbarIconToggleButton}" Command="{Binding Path=GridVisibilityCommand}"  CommandParameter="{Binding ElementName=gridvisibilitybtn,Path=IsChecked}">
+                    <Image Source="..\Images/ToolBarIcons/grid.png" />
+                </ToggleButton>
+                
+            </ToolBar>
+            <ToolBar>
+                <Button Style ="{StaticResource ToolbarIcon}">
+                    <Image Source="..\Images/ToolBarIcons/EdgeSelection.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}">
+                    <Image Source="..\Images/ToolBarIcons/faceselection.png" />
+                </Button>
+                <Button Style ="{StaticResource ToolbarIcon}">
+                    <Image Source="..\Images/ToolBarIcons/pointSelection.png" />
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
+</UserControl>

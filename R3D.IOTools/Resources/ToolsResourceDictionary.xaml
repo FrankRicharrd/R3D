@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:R3D.IOTools.Resources"
+                     xmlns:ViewModels="clr-namespace:R3D.IOTools.ViewModels"
+                     xmlns:Views="clr-namespace:R3D.IOTools.Views"
+                    
+                    
+                    >
+
+
+
+    <DataTemplate DataType="{x:Type ViewModels:IObjectBrowserViewModel}">
+        <Views:IObjectBrowserView/>
+    </DataTemplate>
+    <!--<DataTemplate DataType="{x:Type ViewModels:TreepanelViewModel}">
+        <Views:TreePanel/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModels:ShaderEditorViewModel}">
+        <Views:ShaderEditorPanel/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModels:OutputPaneViewModel}">
+        <Views:OutputPane/>
+    </DataTemplate>-->
+
+</ResourceDictionary>

@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="ViewerApp.Views.DockablePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ViewerApp.Views"
+             xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
+             xmlns:Prism="http://prismlibrary.com/"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviours="clr-namespace:ViewerApp.Behaviours"
+             xmlns:viewmodels="clr-namespace:ViewerApp.ViewModels"
+             xmlns:view ="clr-namespace:ViewerApp.Views"
+             xmlns:pane="clr-namespace:ViewerApp.Dockable"
+             xmlns:behaviour="clr-namespace:ViewerApp.Behaviours"
+             
+             Prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <avalonDock:DockingManager   x:Name="dockManager"  AnchorablesSource="{Binding Path=DockableTools, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                    DocumentsSource="{Binding Path=DocumentCollection, UpdateSourceTrigger=PropertyChanged}"
+                                    ActiveContent="{Binding Path=ActiveDocumentViewModel, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                     AllowMixedOrientation="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LayoutChanged="dockManager_LayoutChanged" 
+                                 behaviour:AvalonDockLayoutSerializer.LoadLayoutCommand="{Binding ADLayout.LoadLayoutCommand}"
+                                behaviour:AvalonDockLayoutSerializer.SaveLayoutCommand="{Binding ADLayout.SaveLayoutCommand}">
+            <avalonDock:DockingManager.Theme>
+                <avalonDock:MetroTheme/>
+            </avalonDock:DockingManager.Theme>
+        <avalonDock:DockingManager.Resources >
+             <!--View with its vm-->
+            <DataTemplate DataType="{x:Type viewmodels:GraphicsDocumentPanelViewModel}">
+                <view:GraphicsDocumentPanel/>
+            </DataTemplate>
+        </avalonDock:DockingManager.Resources>
+
+        <avalonDock:DockingManager.LayoutItemTemplateSelector>
+            <pane:PanesTemplateSelector>
+                
+            </pane:PanesTemplateSelector>
+
+        </avalonDock:DockingManager.LayoutItemTemplateSelector>
+
+        <!--<avalonDock:DockingManager.LayoutItemContainerStyle>
+            <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                <Setter Property="Title" Value="{Binding Model.Title}"/>
+                <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+            </Style>
+            
+        </avalonDock:DockingManager.LayoutItemContainerStyle>-->
+
+       
+        
+        <avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+            <pane:PanesStyleSelector>
+                <pane:PanesStyleSelector.ToolStyle>
+                    <Style TargetType="{x:Type avalonDock:LayoutAnchorableItem}">
+                        <Setter Property="Title" Value="{Binding Model.Title}"/>
+                        <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                        <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                        <Setter Property="CanHide" Value="{Binding Model.CanHide}"></Setter>
+                        <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}"/>
+                        <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}"/>
+                        <Setter Property="Panel.Width" Value="{Binding Model.MinWidth, Mode=TwoWay}"/>
+                    </Style>
+                </pane:PanesStyleSelector.ToolStyle>
+                <pane:PanesStyleSelector.DocumentStyle>
+                    <Style TargetType="{x:Type avalonDock:LayoutItem}">
+                        <Setter Property="Title" Value="{Binding Model.Title}"/>
+                        <Setter Property="ToolTip" Value="{Binding Model.FilePath}"/>
+                        <Setter Property="CloseCommand" Value="{Binding Model.CloseCommand}"/>
+                        <Setter Property="IconSource" Value="{Binding Model.IconSource}"/>
+                        <Setter Property="ContentId" Value="{Binding Model.ContentId}"/>
+                        
+
+                    </Style>
+                </pane:PanesStyleSelector.DocumentStyle>
+            </pane:PanesStyleSelector>
+        </avalonDock:DockingManager.LayoutItemContainerStyleSelector>
+
+        <avalonDock:DockingManager.DocumentHeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding IconSource}" Margin="0,0,4,0"/>
+                        <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis"/>
+                    </StackPanel>
+                </DataTemplate>
+            </avalonDock:DockingManager.DocumentHeaderTemplate>
+   
+        <!--<avalonDock:LayoutRoot >
+                <avalonDock:LayoutPanel Orientation="Horizontal">
+                    <avalonDock:LayoutAnchorablePane DockWidth="225">
+                    <avalonDock:LayoutAnchorable x:Name="TreePane"  ContentId="TreePane" Title="Model hierarchy" CanHide="True" CanClose="False" >
+                            <ContentControl Prism:RegionManager.RegionName="TreeRegion"></ContentControl>
+                        </avalonDock:LayoutAnchorable>
+                    </avalonDock:LayoutAnchorablePane>
+
+                    <avalonDock:LayoutDocumentPane x:Name="LayoutDocumentPane">
+                        <avalonDock:LayoutDocument ContentId="document1" Title="Document 1" CanFloat="False" >
+                            <ContentControl Prism:RegionManager.RegionName="DocumentRegion"></ContentControl>
+                        </avalonDock:LayoutDocument>
+                      
+                    </avalonDock:LayoutDocumentPane>
+
+                    <avalonDock:LayoutAnchorablePaneGroup DockWidth="225">
+                        <avalonDock:LayoutAnchorablePane>
+                            <avalonDock:LayoutAnchorable ContentId="Properties" Title="Properties"  >
+                                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <TextBox Text="{Binding TestTimer, Mode=OneWay, StringFormat='Tool Window 1 Attached to Timer ->\{0\}'}"/>
+                                    <ContentControl Prism:RegionManager.RegionName="PropertiesRegion"></ContentControl>
+                                </StackPanel>
+                            </avalonDock:LayoutAnchorable>
+                            --><!--<avalonDock:LayoutAnchorable ContentId="toolWindow2" Title="Tool Window 2">
+                                <TextBlock Text="{Binding FocusedElement}"/>
+                            </avalonDock:LayoutAnchorable>--><!--
+                        </avalonDock:LayoutAnchorablePane>
+                    </avalonDock:LayoutAnchorablePaneGroup>
+                
+                </avalonDock:LayoutPanel>
+
+            </avalonDock:LayoutRoot>-->
+
+        <!--<avalonDock:LayoutRoot>
+            <avalonDock:LayoutPanel Orientation="Horizontal">
+                <avalonDock:LayoutAnchorablePaneGroup Orientation="Horizontal" >
+                    <avalonDock:LayoutAnchorablePane Name="ToolsPane"  DockMinWidth="500">
+                </avalonDock:LayoutAnchorablePane>
+                    
+                </avalonDock:LayoutAnchorablePaneGroup>
+
+                <avalonDock:LayoutDocumentPaneGroup Orientation="Vertical">
+                <avalonDock:LayoutDocumentPane/>
+
+                </avalonDock:LayoutDocumentPaneGroup>
+            </avalonDock:LayoutPanel>
+            
+        </avalonDock:LayoutRoot>-->
+
+        <!--<avalonDock:DockingManager.LayoutUpdateStrategy>
+            <pane:LayoutInitializer/>
+        </avalonDock:DockingManager.LayoutUpdateStrategy>-->
+
+    </avalonDock:DockingManager>
+   
+</UserControl>
+

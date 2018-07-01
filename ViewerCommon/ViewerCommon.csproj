@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{559A84FF-03C4-4B73-AC36-4D9CA403649E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViewerCommon</RootNamespace>
+    <AssemblyName>ViewerCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fluent">
+      <HintPath>..\packages\Fluent.Ribbon.5.0.2.46\lib\net45\Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Prism">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="RExternalData">
+      <HintPath>..\packages\RExternalData.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums.cs" />
+    <Compile Include="Geometry\Vec3.cs" />
+    <Compile Include="ManagedEnumManager.cs" />
+    <Compile Include="Model\RGeometryNode.cs" />
+    <Compile Include="Model\RNode.cs" />
+    <Compile Include="Model\RTransformNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RBuilderDocument.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="TreeData.cs" />
+    <Compile Include="UI\RRibbonButton.cs" />
+    <Compile Include="UI\RButtonGroup.cs" />
+    <Compile Include="UI\RRibbonToggleButton.cs" />
+    <Compile Include="UI\RTab.cs" />
+    <Compile Include="UI\RUIManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Viewer.AdvancedTypes\Viewer.AdvancedTypes.csproj">
+      <Project>{031DA32B-AE5E-46BF-8FE0-F109AE9C42D4}</Project>
+      <Name>Viewer.AdvancedTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Commands\Viewer.Commands.csproj">
+      <Project>{d34b2eae-1516-4839-9b0c-b958cdec1bc2}</Project>
+      <Name>Viewer.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Infrastructure\Viewer.Infrastructure.csproj">
+      <Project>{C5053BB0-50F9-4110-80A9-6FA6E72ABF0D}</Project>
+      <Name>Viewer.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Interfaces\Viewer.Interfaces.csproj">
+      <Project>{d9b359c0-25f0-43f0-8be3-4899fedf5b8d}</Project>
+      <Name>Viewer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Tools\Viewer.Tools.csproj">
+      <Project>{94DCFC9A-CB33-44CE-B7CB-DEE933B9D629}</Project>
+      <Name>Viewer.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewerGraphicsEditor\ViewerGraphicsEditor.csproj">
+      <Project>{2D56B4FE-F8FE-4097-B5DE-A39D4F5C6D1A}</Project>
+      <Name>ViewerGraphicsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewerInterop\ViewerInterop.vcxproj">
+      <Project>{c6778af6-83ce-4758-82cc-738172f1eed0}</Project>
+      <Name>ViewerInterop</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

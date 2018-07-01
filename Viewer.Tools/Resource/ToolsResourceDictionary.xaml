@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Viewer.Tool.Resource"
+                     xmlns:ViewModels="clr-namespace:Viewer.Tools.ViewModels"
+                     xmlns:Views="clr-namespace:Viewer.Tools.Views"
+                    
+                    
+                    >
+
+
+
+    <DataTemplate DataType="{x:Type ViewModels:PropertiesViewModel}">
+        <Views:PropertiesPanel/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModels:TreepanelViewModel}">
+        <Views:TreePanel/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModels:ShaderEditorViewModel}">
+        <Views:ShaderEditorPanel/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModels:OutputPaneViewModel}">
+        <Views:OutputPane/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModels:LightCreatorViewModel}">
+        <Views:LightCreatorPanel/>
+    </DataTemplate>
+
+</ResourceDictionary>

@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21418F13-73B3-4D9B-B25A-138982ADA3CA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViewerApp</RootNamespace>
+    <AssemblyName>ViewerApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=2.2.0.4, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.2.2.0.4\lib\net45\ControlzEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fluent, Version=5.0.2.46, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.5.0.2.46\lib\net45\Fluent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=5.0.3.0, Culture=neutral, PublicKeyToken=9cc39be672370310, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AvalonEdit.5.0.4\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.0-alpha004\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.0.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.MahApps.0.0.10\lib\net45\MaterialDesignThemes.MahApps.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=1.5.0.523, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.1.5.0.523\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Effects, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.6.3.0\lib\net45\Prism.Unity.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock">
+      <HintPath>..\packages\Avalon dock\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro">
+      <HintPath>..\packages\Avalon dock\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid">
+      <HintPath>..\packages\Extended WPF Toolkit Binaries\Xceed.Wpf.DataGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\packages\Extended WPF Toolkit Binaries\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppData.cs" />
+    <Compile Include="Behaviours\AttachWin32CanvasBehavior.cs" />
+    <Compile Include="Behaviours\AvalonDockLayoutSerializer.cs" />
+    <Compile Include="Behaviours\EventToCommandBehavior.cs" />
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="ApplicationCommands\InsertMenu\GeometryImportCommandHandler.cs" />
+    <Compile Include="Logging.cs" />
+    <Compile Include="Creators\RTabCreator.cs" />
+    <Compile Include="CustomEvents\LoadLayoutEvent.cs" />
+    <Compile Include="CustomEvents\SynchronousEvent.cs" />
+    <Compile Include="Dockable\DockpanelContentViewmodelResolver.cs" />
+    <Compile Include="Dockable\LayoutInitializer.cs" />
+    <Compile Include="Dockable\PanesStyleSelector.cs" />
+    <Compile Include="Dockable\PanesTemplateSelector.cs" />
+    <Compile Include="Dockable\sampledockview.xaml.cs">
+      <DependentUpon>sampledockview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainModule.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="RPluginManager.cs" />
+    <Compile Include="TemplateSelector\DynamicTemplateSelector.cs" />
+    <Compile Include="UIInterfaces\ILayoutViewModelParent.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModels\AvalonDockLayoutViewModel.cs" />
+    <Compile Include="ViewModels\DockablePanelViewModel.cs" />
+    <Compile Include="ViewModels\GraphicsDocumentPanelViewModel.cs" />
+    <Compile Include="ViewModels\RibbonPanelViewModel.cs" />
+    <Compile Include="ViewModels\StatusBarViewModel.cs" />
+    <Compile Include="ViewModels\ToolBarPanelViewModel.cs" />
+    <Compile Include="ViewModels\TreePanelViewModel.cs" />
+    <Compile Include="Views\DockablePanel.xaml.cs">
+      <DependentUpon>DockablePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphicsDocumentPanel.xaml.cs">
+      <DependentUpon>GraphicsDocumentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RibbonPanel.xaml.cs">
+      <DependentUpon>RibbonPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatusBar.xaml.cs">
+      <DependentUpon>StatusBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolBarPanel.xaml.cs">
+      <DependentUpon>ToolBarPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win32WndHost.cs" />
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Dockable\sampledockview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Images\FluentRibbonIcons\VectorIcons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Images\VectorIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\DockablePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraphicsDocumentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RibbonPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatusBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToolBarPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="sampleplugin.r3dplugin">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R3D.IOTools\R3D.IOTools.csproj">
+      <Project>{FC7A80CA-DBD6-4D43-81FF-FBBF1C9F4C1C}</Project>
+      <Name>R3D.IOTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.AdvancedTypes\Viewer.AdvancedTypes.csproj">
+      <Project>{031DA32B-AE5E-46BF-8FE0-F109AE9C42D4}</Project>
+      <Name>Viewer.AdvancedTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Commands\Viewer.Commands.csproj">
+      <Project>{D34B2EAE-1516-4839-9B0C-B958CDEC1BC2}</Project>
+      <Name>Viewer.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Infrastructure\Viewer.Infrastructure.csproj">
+      <Project>{C5053BB0-50F9-4110-80A9-6FA6E72ABF0D}</Project>
+      <Name>Viewer.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Interfaces\Viewer.Interfaces.csproj">
+      <Project>{D9B359C0-25F0-43F0-8BE3-4899FEDF5B8D}</Project>
+      <Name>Viewer.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Viewer.Tools\Viewer.Tools.csproj">
+      <Project>{94DCFC9A-CB33-44CE-B7CB-DEE933B9D629}</Project>
+      <Name>Viewer.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewerCommon\ViewerCommon.csproj">
+      <Project>{559a84ff-03c4-4b73-ac36-4d9ca403649e}</Project>
+      <Name>ViewerCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewerGraphicsEditor\ViewerGraphicsEditor.csproj">
+      <Project>{2D56B4FE-F8FE-4097-B5DE-A39D4F5C6D1A}</Project>
+      <Name>ViewerGraphicsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewerInterop\ViewerInterop.vcxproj">
+      <Project>{c6778af6-83ce-4758-82cc-738172f1eed0}</Project>
+      <Name>ViewerInterop</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\1353183085_save.png" />
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\copy.png" />
+    <Resource Include="Images\cut.png" />
+    <Resource Include="Images\format_painter.png" />
+    <Resource Include="Images\go-next.png" />
+    <Resource Include="Images\go-previous.png" />
+    <Resource Include="Images\help.png" />
+    <Resource Include="Images\home.png" />
+    <Resource Include="Images\options.png" />
+    <Resource Include="Images\paste.png" />
+    <Resource Include="Images\personal.png" />
+    <Resource Include="Images\quit.png" />
+    <Resource Include="Images\redo.png" />
+    <Resource Include="Images\save.png" />
+    <Resource Include="Images\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ToolBarIcons\backview.png" />
+    <Resource Include="Images\ToolBarIcons\bottomview.png" />
+    <Resource Include="Images\ToolBarIcons\EdgeSelection.png" />
+    <Resource Include="Images\ToolBarIcons\faceselection.png" />
+    <Resource Include="Images\ToolBarIcons\frontview.png" />
+    <Resource Include="Images\ToolBarIcons\leftView.png" />
+    <Resource Include="Images\ToolBarIcons\ObjectSelection.png" />
+    <Resource Include="Images\ToolBarIcons\points.png" />
+    <Resource Include="Images\ToolBarIcons\pointSelection.png" />
+    <Resource Include="Images\ToolBarIcons\rightview.png" />
+    <Resource Include="Images\ToolBarIcons\shaded.png" />
+    <Resource Include="Images\ToolBarIcons\topview.png" />
+    <Resource Include="Images\ToolBarIcons\wireframe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FluentRibbonIcons\BlackTheme.png" />
+    <Resource Include="Images\FluentRibbonIcons\Blue.png" />
+    <Resource Include="Images\FluentRibbonIcons\BlueLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\BlueTheme.png" />
+    <Resource Include="Images\FluentRibbonIcons\Bold.png" />
+    <Resource Include="Images\FluentRibbonIcons\Box.png" />
+    <Resource Include="Images\FluentRibbonIcons\Brown.png" />
+    <Resource Include="Images\FluentRibbonIcons\BrownLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\ChangeCase.png" />
+    <Resource Include="Images\FluentRibbonIcons\ClearFormatting.png" />
+    <Resource Include="Images\FluentRibbonIcons\Copy.png" />
+    <Resource Include="Images\FluentRibbonIcons\Cut.png" />
+    <Resource Include="Images\FluentRibbonIcons\Default.png" />
+    <Resource Include="Images\FluentRibbonIcons\Exit.png" />
+    <Resource Include="Images\FluentRibbonIcons\FontColor.png" />
+    <Resource Include="Images\FluentRibbonIcons\FormatPainter.png" />
+    <Resource Include="Images\FluentRibbonIcons\GalleryLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\Gray.png" />
+    <Resource Include="Images\FluentRibbonIcons\GrayLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\Green.png" />
+    <Resource Include="Images\FluentRibbonIcons\GreenLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\GrowFont.png" />
+    <Resource Include="Images\FluentRibbonIcons\Help.png" />
+    <Resource Include="Images\FluentRibbonIcons\Italic.png" />
+    <Resource Include="Images\FluentRibbonIcons\Orange.png" />
+    <Resource Include="Images\FluentRibbonIcons\OrangeLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\Paste.png" />
+    <Resource Include="Images\FluentRibbonIcons\PasteFormating.png" />
+    <Resource Include="Images\FluentRibbonIcons\PasteImage.png" />
+    <Resource Include="Images\FluentRibbonIcons\PasteLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\PasteSourceFormating.png" />
+    <Resource Include="Images\FluentRibbonIcons\PasteText.png" />
+    <Resource Include="Images\FluentRibbonIcons\PasteTextOnly.png" />
+    <Resource Include="Images\FluentRibbonIcons\Pink.png" />
+    <Resource Include="Images\FluentRibbonIcons\PinkLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\Red.png" />
+    <Resource Include="Images\FluentRibbonIcons\RedLarge.png" />
+    <Resource Include="Images\FluentRibbonIcons\SampleImageForScreenTip.png" />
+    <Resource Include="Images\FluentRibbonIcons\Save.png" />
+    <Resource Include="Images\FluentRibbonIcons\ShrinkFont.png" />
+    <Resource Include="Images\FluentRibbonIcons\SilverTheme.png" />
+    <Resource Include="Images\FluentRibbonIcons\Strikethrough.png" />
+    <Resource Include="Images\FluentRibbonIcons\Subscript.png" />
+    <Resource Include="Images\FluentRibbonIcons\Superscript.png" />
+    <Resource Include="Images\FluentRibbonIcons\Test16.png" />
+    <Resource Include="Images\FluentRibbonIcons\Test32.png" />
+    <Resource Include="Images\FluentRibbonIcons\TextEffects.png" />
+    <Resource Include="Images\FluentRibbonIcons\TextHighlightColor.png" />
+    <Resource Include="Images\FluentRibbonIcons\Underline.png" />
+    <Resource Include="Images\FluentRibbonIcons\Yellow.png" />
+    <Resource Include="Images\FluentRibbonIcons\YellowLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ToolBarIcons\prespective.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ApplicationIcons\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ApplicationIcons\geometry.png" />
+    <Resource Include="Images\ApplicationIcons\rotate.png" />
+    <Resource Include="Images\ApplicationIcons\scale.png" />
+    <Resource Include="Images\ApplicationIcons\transform.png" />
+    <Resource Include="Images\ApplicationIcons\translate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ToolBarIcons\grid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ApplicationIcons\applog.png" />
+    <Resource Include="Images\ApplicationIcons\asset.png" />
+    <Resource Include="Images\ApplicationIcons\material.png" />
+    <Resource Include="Images\ApplicationIcons\Properties.png" />
+    <Resource Include="Images\ApplicationIcons\timeline.png" />
+    <Resource Include="Images\ApplicationIcons\treeview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ApplicationIcons\layer.png" />
+    <Resource Include="Images\ApplicationIcons\nodeeditor.png" />
+    <Resource Include="Images\ApplicationIcons\performacecapture.png" />
+    <Resource Include="Images\ApplicationIcons\physicx.png" />
+    <Resource Include="Images\ApplicationIcons\sceneeditor.png" />
+    <Resource Include="Images\ApplicationIcons\simulation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="app.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /E /Y "$(ProjectDir)Icons" "Icons\"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
