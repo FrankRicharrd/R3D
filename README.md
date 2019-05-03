@@ -1,21 +1,23 @@
-# R3D - Real 3D
+# README #
 
-R3D is an opengl based 3D application intented to achieve real-time realistic rendering of larger 3D models.
-This application is integrated inside windows' WPF UI framework to provide better user experience. 
+This README would normally document whatever steps are necessary to get your application up and running.
 
-Opensource packages used:
+### What is this repository for? ###
 
-[Openscenegraph](https://github.com/openscenegraph/OpenSceneGraph "Openscenegraph")
 
-[Fluent Ribbion](https://github.com/fluentribbon/Fluent.Ribbon "Openscenegraph")
+### How do I get set up? ###
 
-[Avalon Dock](https://github.com/xceedsoftware/wpftoolkit/wiki/AvalonDock "Openscenegraph")
+Use visual studio 2015 for compiling.
+Dependent libraries should be placed inside "Packages" folder in solution directory.
+After git cloning there wont be any dependent libraries inside packages folder.
+Open the solution.
+At first make Viewerapp project as startup project and try to build the entire solution. 
+This will restore nuget libraries automatically (Only if you have internet connection).
+Then download the remaining libraries from the below path, extract and paste their corresponding folders inside packages folder.
+Path: https://drive.google.com/open?id=0B64J0n_MNb34WXVWT1VlNmp2VVk
 
-[Prism](https://github.com/PrismLibrary/Prism "Openscenegraph")
+### Contribution guidelines ###
 
-[Material Design](https://github.com/ButchersBoy/MaterialDesignInXamlToolkit "Openscenegraph")
 
-[Mahapps Metro](https://github.com/MahApps/MahApps.Metro "Openscenegraph")
-
-[Tiny Obj](https://github.com/syoyo/tinyobjloader "Openscenegraph")
+### Who do I talk to? ###
 
